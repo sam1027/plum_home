@@ -10,6 +10,7 @@ const InfoDiv = styled.div`
 `;
 
 const InfoFont = styled.span`
+    font-family: 'DungGeunMo';
     font-size: 15px;
 `;
 
