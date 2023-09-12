@@ -8,6 +8,7 @@ const ParentDiv = styled.div`
     grid-template-rows: repeat(4, 1fr);
     grid-column-gap: 10px;
     grid-row-gap: 20px;
+    padding: 20px;
 `;
 interface LayoutProps {
     children: React.ReactNode;
