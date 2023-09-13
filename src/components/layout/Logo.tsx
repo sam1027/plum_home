@@ -8,13 +8,11 @@ const StyledLink = styled(Link)`
 
 const LogoKf = keyframes`
     0% {
-        letter-spacing: -0.6em;
+        filter: blur(12px);
         opacity: 0;
     }
-    40% {
-        opacity: 0.6;
-    }
     100% {
+        filter: blur(0px);
         opacity: 1;
     }
 `;
@@ -24,7 +22,7 @@ const LogoSpan = styled.span`
     font-size: 45px;
     font-weight: 500;
     color: ${oc.violet[9]};
-    animation: ${LogoKf} 0.7s cubic-bezier(0.215, 0.610, 0.355, 1.000) both;
+    animation: ${LogoKf} 1s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
 `;
 
 const Logo = () => {

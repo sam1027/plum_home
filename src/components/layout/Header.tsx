@@ -10,28 +10,29 @@ const HeaderDiv = styled.div`
 `;
 
 const LogoDiv = styled.div`
-    flex-grow: 1;
+    flex-grow: 2;
 `;
 
 const NaviDiv = styled.div`
     display: inline-flex;
-    flex-grow: 9;
+    flex-grow: 8;
 `;
 
-const MenuDiv = styled.div`
-    // display: grid;
-    // grid-template-columns: repeat(6, 1fr);
-    // grid-template-rows: 1fr;
-    // grid-column-gap: 10px;
-    // grid-row-gap: 0px;
-
-    // background-color: blue;
-    // width: 100%;
-    // position: absolute;
-    // top: 75px;
-    // padding: 20px;
+type UnderHeaderProps = {
+    hoverMenu: string;
+}
+    
+const UnderHeaderDiv = styled.div<UnderHeaderProps>`
+    display: ${({hoverMenu}) => hoverMenu !== "" ? "flex !important" : "none !important"};
+    height: 100px;
+    background-color: white;
 `;
 
+const EmptyDiv = styled.div`
+    flex-grow: 2;
+    visibility: hidden;
+`;
+    
 const Header = () => {
     const [hoverMenu, setHoverMenu] = useState<string>('');
 
@@ -46,46 +47,67 @@ const Header = () => {
     };
 
     return (
-        <HeaderDiv>
-            <LogoDiv>
-                <Logo />
-            </LogoDiv>
-            <NaviDiv>
-                <MenuTitle 
-                    onMouseEnter={() => onMenuEnterEvent('1')}
-                    onMouseLeave={onMenuLeaveEvent}
-                >
-                    대메뉴1
-                </MenuTitle>
-                <MenuTitle 
-                    onMouseEnter={() => onMenuEnterEvent('2')}
-                    onMouseLeave={onMenuLeaveEvent}
-                >
-                    대메뉴2
-                </MenuTitle>
-                <MenuTitle 
-                    onMouseEnter={() => onMenuEnterEvent('3')}
-                    onMouseLeave={onMenuLeaveEvent}
-                >
-                    대메뉴3
-                </MenuTitle>
-                <MenuTitle 
-                    onMouseEnter={() => onMenuEnterEvent('4')}
-                    onMouseLeave={onMenuLeaveEvent}
-                >
-                    대메뉴4
-                </MenuTitle>
-                <MenuTitle>
-                    로그인
-                </MenuTitle>
-            </NaviDiv>
-            {/* <MenuDiv>
-                <MenuList />
-                <MenuList />
-                <MenuList />
-                <MenuList />
-            </MenuDiv> */}
-        </HeaderDiv>
+        <>
+            <HeaderDiv>
+                <LogoDiv>
+                    <Logo />
+                </LogoDiv>
+                <NaviDiv>
+                    <MenuTitle 
+                        onMouseEnter={() => onMenuEnterEvent('1')}
+                        onMouseLeave={onMenuLeaveEvent}
+                    >
+                        대메뉴1
+                    </MenuTitle>
+                    <MenuTitle 
+                        onMouseEnter={() => onMenuEnterEvent('2')}
+                        onMouseLeave={onMenuLeaveEvent}
+                    >
+                        대메뉴2
+                    </MenuTitle>
+                    <MenuTitle 
+                        onMouseEnter={() => onMenuEnterEvent('3')}
+                        onMouseLeave={onMenuLeaveEvent}
+                    >
+                        대메뉴3
+                    </MenuTitle>
+                    <MenuTitle 
+                        onMouseEnter={() => onMenuEnterEvent('4')}
+                        onMouseLeave={onMenuLeaveEvent}
+                    >
+                        대메뉴4
+                    </MenuTitle>
+                    <MenuTitle>
+                        로그인
+                    </MenuTitle>
+                </NaviDiv>
+            </HeaderDiv>
+
+            <UnderHeaderDiv hoverMenu={hoverMenu}>
+                <EmptyDiv>
+                    <Logo />
+                </EmptyDiv>
+                <NaviDiv>
+                    <MenuList />
+                    <MenuList />
+                    <MenuList />
+                    <MenuList />
+                    <MenuList />
+                </NaviDiv>
+            </UnderHeaderDiv>
+            
+            {/* <UnderHeaderDiv>
+                <LogoDiv>
+                </LogoDiv>
+                <NaviDiv>
+                    <MenuList />
+                    <MenuList />
+                    <MenuList />
+                    <MenuList />
+                    <MenuList />
+                </NaviDiv>
+            </UnderHeaderDiv> */}
+        </>
     );
 }
  
