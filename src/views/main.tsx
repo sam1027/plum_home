@@ -2,41 +2,33 @@ import { styled } from "styled-components";
 import Contents from "../components/layout/Contents";
 import Slide from "../components/layout/Slide";
 
+const MainDiv = styled.div`
+    display: flex;
+    flex-direction: column;
+`;
+
 const SlideDiv = styled.div`
-    grid-area: 2 / 1 / 3 / 7;
+    padding: 30px 0;
 `;
 
-const ContentsDiv1 = styled.div`
-    grid-area: 3 / 1 / 4 / 3;
-`;
-
-const ContentsDiv2 = styled.div`
-    grid-area: 3 / 3 / 4 / 5;
-`;
-
-const ContentsDiv3 = styled.div`
-    grid-area: 3 / 5 / 4 / 7;
+const ContentsDiv = styled.div`
+    display: inline-flex;
+    justify-content: space-evenly;
 `;
 
 const Main = () => {
     return (
-        <>
+        <MainDiv>
             <SlideDiv>
                 <Slide />
             </SlideDiv>
             
-            <ContentsDiv1>
+            <ContentsDiv>
                 <Contents />
-            </ContentsDiv1>
-
-            <ContentsDiv2>
                 <Contents />
-            </ContentsDiv2>
-
-            <ContentsDiv3>
                 <Contents />
-            </ContentsDiv3>
-        </>
+            </ContentsDiv>
+        </MainDiv>
     );
 }
  

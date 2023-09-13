@@ -2,11 +2,11 @@ import { styled } from "styled-components";
 import Logo from "./Logo";
 
 const LogoDiv = styled.div`
-    grid-area: 4 / 1 / 5 / 2;
+    grid-area: 5 / 1 / 6 / 2;
 `;
 
 const InfoDiv = styled.div`
-    grid-area: 4 / 2 / 5 / 7;
+    grid-area: 5 / 2 / 6 / 7;
 `;
 
 const InfoFont = styled.span`

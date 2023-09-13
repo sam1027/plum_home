@@ -2,17 +2,26 @@ import { styled } from "styled-components";
 
 interface MenuTitleProps {
     children: React.ReactNode;
-    gridArea: string;
+    onMouseEnter?: (id: string) => void;
+    onMouseLeave?: () => void;
 }
 
 const MenuTitleDiv = styled.div<MenuTitleProps>`
-    grid-area: ${props => props.gridArea};
+    flex-basis: 20%;
+    text-align: center;
+    cursor: pointer;
+`;
+
+const MenuTitleSpan = styled.span`
+    line-height: 80px;
+    vertical-align: middle;
+    font-size: 18px;
 `;
 
 const MenuTitle = ({children, ...props}:MenuTitleProps) => {
     return (
         <MenuTitleDiv {...props}>
-            <span>{children}</span>
+            <MenuTitleSpan>{children}</MenuTitleSpan>
         </MenuTitleDiv>
     );
 }

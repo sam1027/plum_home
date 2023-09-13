@@ -3,11 +3,6 @@ import Footer from "./Footer";
 import Header from "./Header";
 
 const ParentDiv = styled.div`
-    display: grid;
-    grid-template-columns: repeat(6, 1fr);
-    grid-template-rows: repeat(4, 1fr);
-    grid-column-gap: 10px;
-    grid-row-gap: 20px;
     padding: 20px;
 `;
 interface LayoutProps {
@@ -19,7 +14,7 @@ const Layout = ({children}:LayoutProps) => {
         <ParentDiv>
             <Header />
             {children}
-            <Footer />
+            {/* <Footer /> */}
         </ParentDiv>
     );
 }
