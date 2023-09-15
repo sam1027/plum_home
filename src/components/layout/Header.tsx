@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { styled } from "styled-components";
+import { keyframes, styled } from "styled-components";
 import MenuList from '../MenuList';
 import MenuTitle from "../MenuTitle";
 import Logo from "./Logo";
@@ -19,13 +19,23 @@ const NaviDiv = styled.div`
 `;
 
 type UnderHeaderProps = {
-    hoverMenu: string;
+    isHoverMenu: boolean;
 }
+
+const UnderHeaderKf = keyframes`
+    0% {
+        transform: translateY(0);
+    }
+    100% {
+        transform: translateY(10px);
+    }
+`;
     
 const UnderHeaderDiv = styled.div<UnderHeaderProps>`
-    display: ${({hoverMenu}) => hoverMenu !== "" ? "flex !important" : "none !important"};
+    display: ${({isHoverMenu}) => isHoverMenu ? "flex !important" : "none !important"};
     height: 100px;
     background-color: white;
+    animation: ${UnderHeaderKf} 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
 `;
 
 const EmptyDiv = styled.div`
@@ -34,47 +44,38 @@ const EmptyDiv = styled.div`
 `;
     
 const Header = () => {
-    const [hoverMenu, setHoverMenu] = useState<string>('');
+    const [isHoverMenu, setIsHoverMenu] = useState<boolean>(false);
 
-    const onMenuEnterEvent = (id: string) => {
-        setHoverMenu(id);
-        console.log(`mouse enter: ${hoverMenu}`);
+    const onMenuEnterEvent = () => {
+        setIsHoverMenu(true);
+        console.log(`isHoverMenu: ${isHoverMenu}`);
     };
 
     const onMenuLeaveEvent = () => {
-        setHoverMenu('');
-        console.log(`mouse leave: ${hoverMenu}`);
+        setIsHoverMenu(false);
+        console.log(`isHoverMenu: ${isHoverMenu}`);
     };
 
     return (
-        <>
+        <div
+            onMouseEnter={onMenuEnterEvent}
+            onMouseLeave={onMenuLeaveEvent}
+        >
             <HeaderDiv>
                 <LogoDiv>
                     <Logo />
                 </LogoDiv>
                 <NaviDiv>
-                    <MenuTitle 
-                        onMouseEnter={() => onMenuEnterEvent('1')}
-                        onMouseLeave={onMenuLeaveEvent}
-                    >
+                    <MenuTitle>
                         대메뉴1
                     </MenuTitle>
-                    <MenuTitle 
-                        onMouseEnter={() => onMenuEnterEvent('2')}
-                        onMouseLeave={onMenuLeaveEvent}
-                    >
+                    <MenuTitle>
                         대메뉴2
                     </MenuTitle>
-                    <MenuTitle 
-                        onMouseEnter={() => onMenuEnterEvent('3')}
-                        onMouseLeave={onMenuLeaveEvent}
-                    >
+                    <MenuTitle>
                         대메뉴3
                     </MenuTitle>
-                    <MenuTitle 
-                        onMouseEnter={() => onMenuEnterEvent('4')}
-                        onMouseLeave={onMenuLeaveEvent}
-                    >
+                    <MenuTitle>
                         대메뉴4
                     </MenuTitle>
                     <MenuTitle>
@@ -83,7 +84,7 @@ const Header = () => {
                 </NaviDiv>
             </HeaderDiv>
 
-            <UnderHeaderDiv hoverMenu={hoverMenu}>
+            <UnderHeaderDiv isHoverMenu={isHoverMenu}>
                 <EmptyDiv>
                     <Logo />
                 </EmptyDiv>
@@ -107,7 +108,7 @@ const Header = () => {
                     <MenuList />
                 </NaviDiv>
             </UnderHeaderDiv> */}
-        </>
+        </div>
     );
 }
  

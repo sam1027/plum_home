@@ -2,8 +2,6 @@ import { styled } from "styled-components";
 
 interface MenuTitleProps {
     children: React.ReactNode;
-    onMouseEnter?: (id: string) => void;
-    onMouseLeave?: () => void;
 }
 
 const MenuTitleDiv = styled.div<MenuTitleProps>`
