@@ -3,7 +3,7 @@ import Footer from "./Footer";
 import Header from "./Header";
 
 const ParentDiv = styled.div`
-    padding: 20px;
+    
 `;
 interface LayoutProps {
     children: React.ReactNode;
@@ -14,7 +14,7 @@ const Layout = ({children}:LayoutProps) => {
         <ParentDiv>
             <Header />
             {children}
-            {/* <Footer /> */}
+            <Footer />
         </ParentDiv>
     );
 }

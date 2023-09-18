@@ -1,12 +1,22 @@
 import { styled } from "styled-components";
 import Logo from "./Logo";
+import oc from 'open-color';
+
+const FooterDiv = styled.div`
+    display: flex;
+    height: 80px;
+    background-color: ${oc.gray[3]};
+    margin-top: 50px;
+`;
 
 const LogoDiv = styled.div`
-    grid-area: 5 / 1 / 6 / 2;
+    flex-grow: 2;
 `;
 
 const InfoDiv = styled.div`
-    grid-area: 5 / 2 / 6 / 7;
+    flex-grow: 8;
+    display: inline-flex;
+    padding: 10px;
 `;
 
 const InfoFont = styled.span`
@@ -16,14 +26,14 @@ const InfoFont = styled.span`
 
 const Footer = () => {
     return (
-        <>
+        <FooterDiv>
             <LogoDiv>
                 <Logo />
             </LogoDiv>
             <InfoDiv>
                 <InfoFont>ⓒ 2023. PLUM Co. All rights reserved.</InfoFont>
             </InfoDiv>
-        </>
+        </FooterDiv>
     );
 }
  

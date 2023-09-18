@@ -10,8 +10,30 @@ const ContentBox = styled.div`
     border-radius: 5px;
 `;
 
+const LabelDiv = styled.div`
+    padding: 10px;
+`;
+
 const Contents = () => {
-    return (<ContentBox>Contents</ContentBox>);
+    return (
+        <ContentBox>
+            <LabelDiv>
+                <span>공지사항</span>
+            </LabelDiv>
+            <table>
+                <th>header1</th>
+                <th>header2</th>
+                <tr>
+                    <td>col1</td>
+                    <td>col2</td>
+                </tr>
+                <tr>
+                    <td>col3</td>
+                    <td>col4</td>
+                </tr>
+            </table>
+        </ContentBox>
+    );
 }
  
 export default Contents;

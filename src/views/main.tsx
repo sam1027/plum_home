@@ -13,7 +13,7 @@ const SlideDiv = styled.div`
 
 const ContentsDiv = styled.div`
     display: inline-flex;
-    justify-content: space-evenly;
+    justify-content: space-between;
 `;
 
 const Main = () => {
